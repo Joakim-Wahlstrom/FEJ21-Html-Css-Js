@@ -15,3 +15,8 @@
 # För att synka den lokala git repon med din remote repo(github)
     git push -u origin master ( git push )
     ( efter det är synkat första gången kan man skriva bara: git push )
+
+---------------------------------------------------------------------------
+
+# När vi vill hämta hem ett helt nytt projekt som vi inte har sen tidigare
+    git clone https://github.com/dinrepoadress.git
