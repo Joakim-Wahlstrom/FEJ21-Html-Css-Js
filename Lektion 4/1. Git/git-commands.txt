@@ -23,3 +23,8 @@
 
 # När vi vill hämta hem de senaste uppdateringarna ( Vi har projektet sen tidigare )
     git pull
+
+---------------------------------------------------------------------------
+
+För att ignorera en fil/mapp så använder man en .gitignore fil och skriver in filnamnet där i
+
