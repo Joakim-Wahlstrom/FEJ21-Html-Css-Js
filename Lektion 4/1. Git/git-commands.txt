@@ -1,0 +1,17 @@
+# För att skapa en ny lokal git repository i en mapp (görs bara en gång)
+    git init
+
+# Lägga till en remote repository (görs bara en gång)
+    git remote add origin https://github.com/dinrepoadress.git
+
+---------------------------------------------------------------------------
+
+# För att lägga till nya filer eller ändringar till index
+    git add .
+
+# För att spara nya filer och ändrade filer
+    git commit -m "Ett vettigt meddelande"
+
+# För att synka den lokala git repon med din remote repo(github)
+    git push -u origin master ( git push )
+    ( efter det är synkat första gången kan man skriva bara: git push )
