@@ -1,1 +1,9 @@
 log.txt
+# ignorerar en specifik fil
+
+/mapp
+
+#ignorerar en hel folder
+
+# *.txt
+# ignorerar alla .txt filer
