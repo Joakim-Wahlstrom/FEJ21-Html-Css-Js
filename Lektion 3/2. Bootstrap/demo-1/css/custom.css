@@ -1,0 +1,33 @@
+:root {
+  --min-färg: #0d534a;
+  --min-färg-hover: #093a33;
+}
+
+
+.bg-info {
+  background-color: var(--min-färg) !important;
+}
+.carousel-item,
+.carousel-item img {
+  height: calc(100vh - 56px);
+  object-fit: cover;
+  object-position: center;
+}
+.btn-info {
+  color: #fff;
+  background-color: darkslategray;
+  border-color: darkslategray;
+}
+.btn-info:hover {
+  color: #fff;
+  background-color: darkslategray;
+  border-color: darkslategray;
+}
+.btn-min {
+  color: #fff;
+  background-color: var(--min-färg);
+}
+.btn-min:hover {
+  color: #fff;
+  background-color: var(--min-färg-hover);
+}

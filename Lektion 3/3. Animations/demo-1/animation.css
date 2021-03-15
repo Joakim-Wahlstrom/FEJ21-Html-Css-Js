@@ -1,0 +1,72 @@
+.animate {
+  position: relative;
+  /* left: calc(50% - 100px); */
+  animation-duration: 10s;
+  /* animation-delay: 2s; */
+  animation-iteration-count: infinite;
+  /* animation-direction: alternate; */
+  /* animation-timing-function: ease-in-out; */
+  /* animation-fill-mode: both; */
+
+
+}
+.slide-in-left {
+  animation-name: slide-in-left;
+}
+.slide-in-right {
+  animation-name: slide-in-right;
+}
+.rainbow {
+  animation-name: rainbow;
+}
+.slide-around {
+  animation-name: slide-around;
+}
+
+@keyframes slide-in-left {
+  from {left: -100px}
+  to {left: 100px;}
+}
+
+@keyframes slide-in-right {
+  from {left: 100%}
+  to {left: calc(100% - 200px)}
+}
+@keyframes rainbow {
+  0% { background-color: blue; }
+  25% { background-color: red; }
+  50% { background-color: green; }
+  75% { background-color: yellow; }
+  100% { background-color: purple; }
+}
+@keyframes slide-around {
+  0% { 
+    top: 0;
+    left: 0;
+    background-color: blue; 
+  }
+  10% {
+    top: 50%;
+    background-color: black;
+  }
+  25% { 
+    top: 0;
+    left: calc(100% - 100px);
+    background-color: red; 
+  }
+  50% { 
+    top: calc(100% - 100px);
+    left: calc(100% - 100px);
+    background-color: green; 
+  }
+  75% { 
+    top: calc(100% - 100px);
+    left: 0;
+    background-color: yellow; 
+  }
+  100% { 
+    top: 0;
+    left: 0;
+    background-color: purple; 
+  }
+}

@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  background-color: #eeeeee;
+  color: #111;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.card-1 {
+  /* font-size: 2em; */
+  background-color: #222;
+  color: #eee;
+  width: 300px;
+  /* padding: 1.5rem; */
+  /* margin: 20px; */
+  border: 5px solid blue;
+  /* box-sizing: border-box; */
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.card-1 h2 {
+  font-size: 2.2rem;
+  background-color: darkslateblue;
+  padding: 0.5rem 2rem;
+}
+.card-1 p {
+  font-size: 1rem;
+  padding: 1rem 2rem;
+}
+
+.card-2 {
+  border: 1px solid #333;
+  margin: 2rem 0;
+  padding: 2rem;
+  /* padding-top: 2rem;
+  padding-right: 5rem;
+  padding-bottom: 0; */
+  /* padding-left: 10rem; */
+  border-radius: 15px;
+}
+
+
+.card-3 {
+  border: 2px dashed #169978;
+  padding: 2rem;
+}
+.card-3 ul {
+  list-style: none;
+}
+.card-3 a {
+  text-decoration: none;
+  color: #222;
+}
+.card-3 a:hover {
+  color: #169978;
+}
+.card-3 li:nth-child(odd) {
+  background-color: #bbb;
+}
+
+.links {
+  margin-top: 2rem;
+}
+.link {
+  border: 1px solid gray;
+  width: 300px;
+  height: 50px;
+  /* margin-top: 1rem; */
+  display: inline-block;
+}
+
+.buttons {
+  margin-top: 2rem;
+}
+
+.jockes-knapp {
+  padding: 0.7rem 1.5rem;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  
+}
+.jockes-knapp:hover {
+  background-color: #861704;
+  color: aqua;
+}
+.jockes-knapp:active {
+  background-color: rgb(1, 145, 145);
+  color: #3f3f3f;
+}

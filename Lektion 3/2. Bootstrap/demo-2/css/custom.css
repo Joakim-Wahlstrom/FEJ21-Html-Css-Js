@@ -1,0 +1,13 @@
+.logo {
+  font-size: 3rem;
+  color: darkorchid;
+}
+.fix {
+  margin-top: 74.57px;
+}
+.btn-primary {
+  background-color: darkorchid;
+}
+.btn-primary:hover {
+  background-color: rgb(127, 42, 170);
+}

@@ -1,0 +1,16 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100vh;
+  overflow: hidden;
+}
+.ball {
+  height: 100px;
+  width: 100px;
+  background-color: purple;
+  border-radius: 50%;
+}
