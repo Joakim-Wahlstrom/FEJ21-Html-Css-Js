@@ -84,3 +84,4 @@ console.log(names);
 // console.log(names);   
 names.sort().reverse();  // sortera i bokstavsorning baklänges
 console.log(names);
+
