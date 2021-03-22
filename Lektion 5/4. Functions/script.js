@@ -32,6 +32,7 @@
 
 
 // Deklarera en funktion
+
 // function hej() {
 //   console.log('hej på dig');
 // }
@@ -43,6 +44,7 @@
 // Köra en funktion
 // hej();
 // greet();
+
 
 
 
