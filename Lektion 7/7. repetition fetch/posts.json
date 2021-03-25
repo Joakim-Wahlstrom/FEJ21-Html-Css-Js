@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "Hur man jobbar med json",
+    "body": "Det här är en blog post om hur man hämtar ett JSON objekt med fetch"
+  },
+  {
+    "id": 2,
+    "title": "Varför Joakim är bäst",
+    "body": "Det är är en blog post om varför Joakim är såååå himla bra.. Det är ett mysterium"
+  }
+]

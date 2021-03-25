@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "ta rast",
+    "completed": true
+  },
+  {
+    "id": 2,
+    "title": "lära oss javascript",
+    "completed": true
+  },
+  {
+    "id": 3,
+    "title": "äta mat",
+    "completed": true
+  }
+]

@@ -1,0 +1,1 @@
+Det här är en text som kommer från filen text.txt
