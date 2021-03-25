@@ -7,6 +7,34 @@ const password2 = document.querySelector('#password2');
 const tac = document.querySelector('#tac');
 
 
+const validate = input => {
+
+  switch(input.type) {
+
+    case 'text':
+      return validateText(input);
+
+    case 'email':
+      return validateEmail(input);
+
+    case 'password':
+      if(input.id !== 'password2')
+        return validatePassword(input);
+      else
+        return samePassword(password, input);
+
+    case 'checkbox':
+      return validateCheck(input);
+
+    default:
+      break;
+  }
+
+} 
+
+
+
+
 const validateText = input => {
 
   if(input.value.trim() === '') {
@@ -109,10 +137,16 @@ const setSuccess = input => {
 form.addEventListener('submit', e => {
   e.preventDefault();
 
-  validateText(firstName);
-  validateText(lastName);
-  validateEmail(email);
-  validatePassword(password);
-  samePassword(password, password2);
-  validateCheck(tac);
+  const errors = [];
+
+  for(let i = 0; i < form.length; i++) {
+    errors[i] = validate(form[i])
+  }
+
+  if(!errors.includes(false)) {
+    console.log('Allt gick bra, skickar formulär!')
+    form.reset()
+  }
+
+  // console.log(errors);
 })
