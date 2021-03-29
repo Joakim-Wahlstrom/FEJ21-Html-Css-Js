@@ -7,3 +7,7 @@ export const validate = user => {
     return false
   }
 }
+
+export const hasNumber = string => {
+  return /\d/.test(string);
+}
