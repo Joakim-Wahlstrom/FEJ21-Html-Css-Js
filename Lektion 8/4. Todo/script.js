@@ -1,25 +1,14 @@
-let todos = [
-  {
-    id: '1',
-    title: 'todo one',
-    completed: false
-  },
-  {
-    id: '2',
-    title: 'todo two',
-    completed: false
-  },
-  {
-    id: '3',
-    title: 'todo three',
-    completed: true
-  },
-]
-
+let todos = []
 
 const output = document.querySelector('#todos');
 const form = document.querySelector('#todoForm');
 
+fetch('https://jsonplaceholder.typicode.com/todos?_start=10&_limit=10')
+  .then(res => res.json())
+  .then(data => {
+    todos = data;
+    listTodos();
+  })
 
 const listTodos = () => {
   output.innerHTML = '';
@@ -36,7 +25,7 @@ const listTodos = () => {
   })
 }
 
-listTodos();
+// listTodos();
 
 form.addEventListener('submit', e => {
   e.preventDefault();
@@ -45,19 +34,54 @@ form.addEventListener('submit', e => {
 
   if(input.value.trim() !== '') {
     input.classList.remove('is-invalid');
-    
-    let todo = {
-      id: Date.now().toString(),
-      title: input.value,
-      completed: false
-    }
 
-    todos.unshift(todo);
+    // let todo = {
+    //   id: Date.now().toString(),
+    //   title: input.value,
+    //   completed: false
+    // }
 
-    listTodos();
-    input.value = '';
+    // todos.unshift(todo);
+
+    // listTodos();
+
+    fetch('https://jsonplaceholder.typicode.com/todos', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8'
+      },
+      body: JSON.stringify({
+        title: input.value,
+        completed: false
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+
+      let todo = {
+        ...data,
+        id: Date.now()
+      }
+      todos.unshift(todo);
+      listTodos();
+      input.value = '';
+
+    })
+
   } else {
     input.classList.add('is-invalid');
+  }
+
+})
+
+
+output.addEventListener('click', e => {
+  console.log(e.target.tagName);
+
+  if(e.target.tagName === 'BUTTON') {
+    // if(e.target.classList.contains('btn-danger')){
+    todos = todos.filter(todo => todo.id != e.target.parentNode.id);
+    listTodos();
   }
 
 })
