@@ -4,7 +4,8 @@ const email = document.querySelector('#email');
 const btn = document.querySelector('#btn');
 const btn2 = document.querySelector('#btn2');
 
-let users = []
+let users = [];
+let cUser = null;
 
 class User {
   constructor(firstName, lastName, email) {
@@ -20,21 +21,42 @@ const createUser = (firstName, lastName, email) => {
   const user = new User(firstName, lastName, email);
 
   users.push(user);
-  newUser(user);
+    newUser(user);
+
   console.log(users)
 }
 
-const changeData = (user, cb) => {
-  user.firstName = firstName.value
-  user.lastName = lastName.value
-  user.email = email.value
+// const changeData = (user, cb) => {
+//   user.firstName = firstName.value
+//   user.lastName = lastName.value
+//   user.email = email.value
 
-  btn.classList.remove('d-none');
-  btn2.classList.add('d-none');
+//   btn.classList.remove('d-none');
+//   btn2.classList.add('d-none');
 
-  cb();
+//   cb();
+// }
+
+const changeData = () => {
+  console.log(cUser)
+  cUser.firstName = firstName.value; 
+  cUser.lastName = lastName.value; 
+  cUser.email = email.value; 
+
+   btn.classList.remove('d-none');
+   btn2.classList.add('d-none');
+    // cUser = null
+    btn2.removeEventListener('click', changeData);
+    console.log(users);
+    output.innerHTML = ''
+    users.forEach(user => {
+      newUser(user)
+    })
+
+    firstName.value = '';
+    lastName.value = '';
+    email.value = '';
 }
-
 
 const newUser = user => {
 
@@ -62,14 +84,21 @@ const newUser = user => {
     btn.classList.add('d-none');
     btn2.classList.remove('d-none');
 
-    if(!user.listener) {
-      btn2.addEventListener('click', () => changeData(user, () => {
-        h3.innerText = `${user.firstName} ${user.lastName}`;
-        small.innerText = user.email;
-      }))
-    }
+    cUser = user;
 
-    user.listener = true
+    btn2.addEventListener('click', changeData);
+
+
+    // cUser = null;
+    // if(!user.listener) {
+    //   btn2.addEventListener('click', () => changeData(user, () => {
+    //     h3.innerText = `${user.firstName} ${user.lastName}`;
+    //     small.innerText = user.email;
+    //   }))
+    // }
+
+ 
+    // user.listener = true
   })
 
   let deleteBtn = document.createElement('button');
