@@ -1,5 +1,8 @@
-
-
+const firstName = document.querySelector('#firstName');
+const lastName = document.querySelector('#lastName');
+const email = document.querySelector('#email');
+const btn = document.querySelector('#btn');
+const btn2 = document.querySelector('#btn2');
 
 let users = []
 
@@ -8,7 +11,8 @@ class User {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
-    this.id = Date.now().toString()
+    this.id = Date.now().toString();
+    this.listener = false;
   }
 }
 
@@ -20,10 +24,23 @@ const createUser = (firstName, lastName, email) => {
   console.log(users)
 }
 
+const changeData = (user, cb) => {
+  user.firstName = firstName.value
+  user.lastName = lastName.value
+  user.email = email.value
+
+  btn.classList.remove('d-none');
+  btn2.classList.add('d-none');
+
+  cb();
+}
+
+
 const newUser = user => {
 
   let _user = document.createElement('div');
-  _user.classList.add('user', 'd-flex', 'justify-content-between', 'align-items-center', 'mb-4');
+  _user.classList.add('user', 'd-flex', 'justify-content-between', 'align-items-center', 'mb-4', 'animate');
+  
 
   let text = document.createElement('div');
 
@@ -38,6 +55,22 @@ const newUser = user => {
   let changeBtn = document.createElement('button');
   changeBtn.classList.add('btn', 'btn-primary');
   changeBtn.innerText = 'change';
+  changeBtn.addEventListener('click', () => {
+    firstName.value = user.firstName;
+    lastName.value = user.lastName;
+    email.value = user.email;
+    btn.classList.add('d-none');
+    btn2.classList.remove('d-none');
+
+    if(!user.listener) {
+      btn2.addEventListener('click', () => changeData(user, () => {
+        h3.innerText = `${user.firstName} ${user.lastName}`;
+        small.innerText = user.email;
+      }))
+    }
+
+    user.listener = true
+  })
 
   let deleteBtn = document.createElement('button');
   deleteBtn.classList.add('btn', 'btn-danger');
@@ -45,8 +78,12 @@ const newUser = user => {
 
   deleteBtn.addEventListener('click', () => {
     users = users.filter(u => u.id !== user.id)
-
-    console.log(users)
+    _user.addEventListener('animationend', () => _user.remove())
+    _user.classList.add('slideout')
+    // setTimeout(() => {
+    //   _user.remove()
+    // }, 500)
+    // console.log(users)
   })
 
 
@@ -65,13 +102,11 @@ const newUser = user => {
 
 
 
-document.querySelector('#form').addEventListener('submit', e => {
+document.querySelector('#form').addEventListener('submit', function(e) {
   e.preventDefault();
-  const firstName = document.querySelector('#firstName').value;
-  const lastName = document.querySelector('#lastName').value;
-  const email = document.querySelector('#email').value;
 
-  if(firstName !== '' && lastName !== '' && email !== '') {
-    createUser(firstName, lastName, email);
+  if(firstName.value !== '' && lastName.value !== '' && email.value !== '') {
+    createUser(firstName.value, lastName.value, email.value);
+    this.reset()
   }
 })
